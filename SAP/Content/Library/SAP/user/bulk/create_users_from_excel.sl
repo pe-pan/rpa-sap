@@ -1,6 +1,6 @@
 ########################################################################################################################
 #!!
-#! @description: Creates up to 1000 SAP users from given excel sheet.
+#! @description: Creates up to 1000 SAP users from given excel sheet. The sheet must have a header where each property is written in one column. Name (containing the first name and the last name) is in a single column; the names must be delimited by a white space character.
 #!
 #! @input name_header: Contains first name and last name delimited by space; if there is more such tokens; last name is the last one
 #! @input set_admin: Attach the created users the SAP_ALL profile

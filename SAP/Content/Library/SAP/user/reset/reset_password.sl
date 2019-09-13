@@ -1,5 +1,7 @@
 ########################################################################################################################
 #!!
+#! @description: Resets password of a single user.
+#!
 #! @input username: Which user to reset password for
 #! @input password: New password
 #!!#

@@ -1,3 +1,8 @@
+########################################################################################################################
+#!!
+#! @description: Creates a SAP user. Optionally, it attaches the SAP_ALL profile to the user thus making the user an admin.
+#!!#
+########################################################################################################################
 namespace: SAP.user
 flow:
   name: create_user

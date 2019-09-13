@@ -1,3 +1,10 @@
+########################################################################################################################
+#!!
+#! @input row: Values delimited by , from a single excel sheet row
+#! @input map: Map where keys are the header names and values are the indexes of their columns
+#! @input set_admin: True if the created user should be also set as admin
+#!!#
+########################################################################################################################
 namespace: SAP.user.bulk.subflows
 flow:
   name: create_user_from_row
