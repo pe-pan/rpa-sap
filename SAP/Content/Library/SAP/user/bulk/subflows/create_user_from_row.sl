@@ -28,7 +28,7 @@ flow:
           - SUCCESS: Create_User_flow
     - Create_User_flow:
         do:
-          SAP.Create_User_flow:
+          SAP.user.create_user:
             - username: '${username}'
             - first_name: '${first_name}'
             - last_name: '${last_name}'
