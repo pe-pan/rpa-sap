@@ -8,6 +8,7 @@ flow:
     - password_header
     - name_header
     - email_header
+    - set_admin
   workflow:
     - row_to_values:
         do:
@@ -34,6 +35,7 @@ flow:
             - last_name: '${last_name}'
             - email: '${email}'
             - password: '${password}'
+            - set_admin: '${set_admin}'
         navigate:
           - SUCCESS: SUCCESS
           - FAILURE: on_failure

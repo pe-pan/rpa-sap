@@ -3,6 +3,7 @@
 #! @description: Creates up to 1000 SAP users from given excel sheet.
 #!
 #! @input name_header: Contains first name and last name delimited by space; if there is more such tokens; last name is the last one
+#! @input set_admin: Attach the created users the SAP_ALL profile
 #!!#
 ########################################################################################################################
 namespace: SAP.user.bulk
@@ -15,6 +16,7 @@ flow:
     - password_header: SAP Password
     - name_header: Name
     - email_header: E-mail
+    - set_admin: 'true'
   workflow:
     - Get_Cell:
         do_external:
@@ -44,6 +46,7 @@ flow:
               - password_header: '${password_header}'
               - name_header: '${name_header}'
               - email_header: '${email_header}'
+              - set_admin: '${set_admin}'
         navigate:
           - FAILURE: on_failure
           - SUCCESS: SUCCESS

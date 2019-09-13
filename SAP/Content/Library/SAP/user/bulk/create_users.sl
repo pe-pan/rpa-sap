@@ -8,6 +8,7 @@
 #!
 #! @input username_format: user{:03d} will generate users like user001, user002, user003 ... user030
 #! @input first_name_format: rpa{} will generate names like rpa1, rpa2, rpa3 ... rpa30
+#! @input set_admin: Attach the created users the SAP_ALL profile
 #!!#
 ########################################################################################################################
 namespace: SAP.user.bulk
@@ -21,6 +22,7 @@ flow:
     - last_name_format: bootcamp
     - email_format: 'rpa.bootcamp{}@microfocus.com'
     - password_format: cloud1
+    - set_admin: 'true'
   workflow:
     - create_user:
         parallel_loop:
@@ -32,6 +34,7 @@ flow:
               - last_name: '${last_name_format.format(index)}'
               - email: '${email_format.format(index)}'
               - password: '${password_format.format(index)}'
+              - set_admin: '${set_admin}'
         navigate:
           - SUCCESS: SUCCESS
           - FAILURE: on_failure
