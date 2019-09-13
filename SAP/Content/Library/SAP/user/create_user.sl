@@ -8,7 +8,7 @@ flow:
     - email
     - password
   workflow:
-    - Create_User:
+    - create_user_act:
         do:
           SAP.user.create_user_act:
             - username: '${username}'
@@ -34,7 +34,7 @@ flow:
 extensions:
   graph:
     steps:
-      Create_User:
+      create_user_act:
         x: 100
         'y': 150
         navigate:

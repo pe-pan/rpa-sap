@@ -2,10 +2,9 @@
 #!!
 #! @description: Resets passwords of multiple SAP users.
 #!               Couple of examples on formating
-#!                  {:03d}          user001, user002, user003, ... user030
-#!                  user{}          user1, user2, user3, ... user30
+#!               {:03d}          user001, user002, user003, ... user030
+#!               user{}          user1, user2, user3, ... user30
 #!               FMI on format, see https://pyformat.info/
-#!               
 #!
 #! @input username_format: user{:03d} will generate users like user001, user002, user003 ... user030
 #!!#
@@ -19,7 +18,7 @@ flow:
     - username_format: 'user{:03d}'
     - password_format: cloud1
   workflow:
-    - Reset_User_Password_flow:
+    - reset_password:
         parallel_loop:
           for: 'index in range(int(start_index), int(last_index)+1)'
           do:
@@ -35,7 +34,7 @@ flow:
 extensions:
   graph:
     steps:
-      Reset_User_Password_flow:
+      reset_password:
         x: 113
         'y': 99
         navigate:

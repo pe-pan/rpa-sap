@@ -2,12 +2,12 @@ namespace: SAP.user.admin
 flow:
   name: set_admin
   inputs:
-    - user_id
+    - username
   workflow:
-    - Set_User_Admin:
+    - set_admin_act:
         do:
           SAP.user.admin.set_admin_act:
-            - user_id: '${user_id}'
+            - username: '${username}'
         publish:
           - user_status
         navigate:
@@ -22,7 +22,7 @@ flow:
 extensions:
   graph:
     steps:
-      Set_User_Admin:
+      set_admin_act:
         x: 187
         'y': 171
         navigate:

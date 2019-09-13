@@ -11,7 +11,7 @@ flow:
     - user
     - password
   workflow:
-    - Reset_User_Password:
+    - reset_password_act:
         do:
           SAP.user.reset.reset_password_act:
             - user: '${user}'
@@ -34,7 +34,7 @@ flow:
 extensions:
   graph:
     steps:
-      Reset_User_Password:
+      reset_password_act:
         x: 100
         'y': 150
         navigate:

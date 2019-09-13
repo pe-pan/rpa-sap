@@ -25,8 +25,8 @@ flow:
           - last_name
           - email
         navigate:
-          - SUCCESS: Create_User_flow
-    - Create_User_flow:
+          - SUCCESS: create_user
+    - create_user:
         do:
           SAP.user.create_user:
             - username: '${username}'
@@ -43,16 +43,16 @@ flow:
 extensions:
   graph:
     steps:
-      Create_User_flow:
+      row_to_values:
+        x: 123
+        'y': 124
+      create_user:
         x: 281
         'y': 128
         navigate:
           a337f679-0367-2d1f-2722-cb7e685c9486:
             targetId: 85589f6d-0a8d-f072-f30b-c887cef9fb4e
             port: SUCCESS
-      row_to_values:
-        x: 123
-        'y': 124
     results:
       SUCCESS:
         85589f6d-0a8d-f072-f30b-c887cef9fb4e:

@@ -2,10 +2,9 @@
 #!!
 #! @description: Creates multiple SAP users.
 #!               Couple of examples on formating
-#!                  {:03d}          user001, user002, user003, ... user030
-#!                  user{}          user1, user2, user3, ... user30
+#!               {:03d}          user001, user002, user003, ... user030
+#!               user{}          user1, user2, user3, ... user30
 #!               FMI on format, see https://pyformat.info/
-#!               
 #!
 #! @input username_format: user{:03d} will generate users like user001, user002, user003 ... user030
 #! @input first_name_format: rpa{} will generate names like rpa1, rpa2, rpa3 ... rpa30
@@ -23,7 +22,7 @@ flow:
     - email_format: 'rpa.bootcamp{}@microfocus.com'
     - password_format: cloud1
   workflow:
-    - Create_User_flow:
+    - create_user:
         parallel_loop:
           for: 'index in range(int(start_index), int(last_index)+1)'
           do:
@@ -42,7 +41,7 @@ flow:
 extensions:
   graph:
     steps:
-      Create_User_flow:
+      create_user:
         x: 117
         'y': 90
         navigate:
