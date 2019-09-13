@@ -1,6 +1,6 @@
-namespace: SAP.Admin
+namespace: SAP.user.admin
 operation:
-  name: Set_User_Admin
+  name: set_admin_act
   inputs:
     - user_id
   sequential_action:

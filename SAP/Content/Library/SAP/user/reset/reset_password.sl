@@ -4,16 +4,16 @@
 #! @input password: New password
 #!!#
 ########################################################################################################################
-namespace: SAP.Reset_Password
+namespace: SAP.user.reset
 flow:
-  name: Reset_User_Password_flow
+  name: reset_password
   inputs:
     - user
     - password
   workflow:
     - Reset_User_Password:
         do:
-          SAP.Reset_Password.Reset_User_Password:
+          SAP.user.reset.reset_password_act:
             - user: '${user}'
             - password: '${password}'
         publish:

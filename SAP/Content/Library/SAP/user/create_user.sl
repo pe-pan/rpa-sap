@@ -1,6 +1,6 @@
-namespace: SAP
+namespace: SAP.user
 flow:
-  name: Create_User_flow
+  name: create_user
   inputs:
     - username
     - first_name
@@ -10,7 +10,7 @@ flow:
   workflow:
     - Create_User:
         do:
-          SAP.Create_User:
+          SAP.user.create_user_act:
             - username: '${username}'
             - first_name: '${first_name}'
             - last_name: '${last_name}'

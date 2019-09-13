@@ -10,9 +10,9 @@
 #! @input username_format: user{:03d} will generate users like user001, user002, user003 ... user030
 #!!#
 ########################################################################################################################
-namespace: SAP.Reset_Password
+namespace: SAP.user.reset.bulk
 flow:
-  name: Reset_Multiple_Users_Password
+  name: reset_passwords
   inputs:
     - start_index: '1'
     - last_index: '30'
@@ -23,7 +23,7 @@ flow:
         parallel_loop:
           for: 'index in range(int(start_index), int(last_index)+1)'
           do:
-            SAP.Reset_Password.Reset_User_Password_flow:
+            SAP.user.reset.reset_password:
               - user: '${username_format.format(index)}'
               - password: '${password_format.format(index)}'
         navigate:

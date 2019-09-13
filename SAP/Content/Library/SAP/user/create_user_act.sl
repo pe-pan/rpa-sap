@@ -1,6 +1,6 @@
-namespace: SAP
+namespace: SAP.user
 operation:
-  name: Create_User
+  name: create_user_act
   inputs:
     - username
     - first_name

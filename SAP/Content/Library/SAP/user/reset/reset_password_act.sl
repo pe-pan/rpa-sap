@@ -4,9 +4,9 @@
 #! @input password: New password
 #!!#
 ########################################################################################################################
-namespace: SAP.Reset_Password
+namespace: SAP.user.reset
 operation:
-  name: Reset_User_Password
+  name: reset_password_act
   inputs:
     - user
     - password

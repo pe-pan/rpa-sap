@@ -11,9 +11,9 @@
 #! @input first_name_format: rpa{} will generate names like rpa1, rpa2, rpa3 ... rpa30
 #!!#
 ########################################################################################################################
-namespace: SAP
+namespace: SAP.user.bulk
 flow:
-  name: Create_Multiple_Users
+  name: create_users
   inputs:
     - start_index: '1'
     - last_index: '30'
@@ -27,7 +27,7 @@ flow:
         parallel_loop:
           for: 'index in range(int(start_index), int(last_index)+1)'
           do:
-            SAP.Create_User_flow:
+            SAP.user.create_user:
               - username: '${username_format.format(index)}'
               - first_name: '${first_name_format.format(index)}'
               - last_name: '${last_name_format.format(index)}'

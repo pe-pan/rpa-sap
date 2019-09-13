@@ -1,12 +1,12 @@
-namespace: SAP.Admin
+namespace: SAP.user.admin
 flow:
-  name: Set_User_Admin_flow
+  name: set_admin
   inputs:
     - user_id
   workflow:
     - Set_User_Admin:
         do:
-          SAP.Admin.Set_User_Admin:
+          SAP.user.admin.set_admin_act:
             - user_id: '${user_id}'
         publish:
           - user_status
