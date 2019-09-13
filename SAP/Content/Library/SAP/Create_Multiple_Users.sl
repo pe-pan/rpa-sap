@@ -1,6 +1,6 @@
 ########################################################################################################################
 #!!
-#! @description: Resets passwords of multiple SAP users.
+#! @description: Creates multiple SAP users.
 #!               Couple of examples on formating
 #!                  {:03d}          user001, user002, user003, ... user030
 #!                  user{}          user1, user2, user3, ... user30
@@ -8,42 +8,49 @@
 #!               
 #!
 #! @input username_format: user{:03d} will generate users like user001, user002, user003 ... user030
+#! @input first_name_format: rpa{} will generate names like rpa1, rpa2, rpa3 ... rpa30
 #!!#
 ########################################################################################################################
-namespace: SAP.Reset_Password
+namespace: SAP
 flow:
-  name: Reset_Multiple_Users_Password
+  name: Create_Multiple_Users
   inputs:
     - start_index: '1'
     - last_index: '30'
     - username_format: 'user{:03d}'
+    - first_name_format: 'rpa{}'
+    - last_name_format: bootcamp
+    - email_format: 'rpa.bootcamp{}@microfocus.com'
     - password_format: cloud1
   workflow:
-    - Reset_User_Password_flow:
+    - Create_User_flow:
         parallel_loop:
           for: 'index in range(int(start_index), int(last_index)+1)'
           do:
-            SAP.Reset_Password.Reset_User_Password_flow:
-              - user: '${username_format.format(index)}'
+            SAP.Create_User_flow:
+              - username: '${username_format.format(index)}'
+              - first_name: '${first_name_format.format(index)}'
+              - last_name: '${last_name_format.format(index)}'
+              - email: '${email_format.format(index)}'
               - password: '${password_format.format(index)}'
         navigate:
           - SUCCESS: SUCCESS
           - FAILURE: on_failure
   results:
-    - SUCCESS
     - FAILURE
+    - SUCCESS
 extensions:
   graph:
     steps:
-      Reset_User_Password_flow:
-        x: 113
-        'y': 99
+      Create_User_flow:
+        x: 117
+        'y': 90
         navigate:
-          73a45a4c-a8fb-bbd7-eef1-f350e96cfa16:
-            targetId: 79081a54-b31e-7393-dac4-74cf52e2676a
+          d35ab8f0-a8fb-2a9e-4c88-ae525fb85604:
+            targetId: a7c42932-03be-9724-8833-48231aff8314
             port: SUCCESS
     results:
       SUCCESS:
-        79081a54-b31e-7393-dac4-74cf52e2676a:
-          x: 291
-          'y': 110
+        a7c42932-03be-9724-8833-48231aff8314:
+          x: 265
+          'y': 89
