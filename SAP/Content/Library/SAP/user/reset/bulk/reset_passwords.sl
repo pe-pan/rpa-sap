@@ -23,7 +23,7 @@ flow:
           for: 'index in range(int(start_index), int(last_index)+1)'
           do:
             SAP.user.reset.reset_password:
-              - user: '${username_format.format(index)}'
+              - username: '${username_format.format(index)}'
               - password: '${password_format.format(index)}'
         navigate:
           - SUCCESS: SUCCESS

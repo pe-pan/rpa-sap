@@ -1,6 +1,6 @@
 ########################################################################################################################
 #!!
-#! @input user: Which user to reset password for
+#! @input username: Which user to reset password for
 #! @input password: New password
 #!!#
 ########################################################################################################################
@@ -8,13 +8,13 @@ namespace: SAP.user.reset
 flow:
   name: reset_password
   inputs:
-    - user
+    - username
     - password
   workflow:
     - reset_password_act:
         do:
           SAP.user.reset.reset_password_act:
-            - user: '${user}'
+            - user: '${username}'
             - password: '${password}'
         publish:
           - status

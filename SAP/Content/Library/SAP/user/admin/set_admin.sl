@@ -7,7 +7,7 @@ flow:
     - set_admin_act:
         do:
           SAP.user.admin.set_admin_act:
-            - username: '${username}'
+            - user_id: '${username}'
         publish:
           - user_status
         navigate:
@@ -23,7 +23,7 @@ extensions:
   graph:
     steps:
       set_admin_act:
-        x: 187
+        x: 186
         'y': 171
         navigate:
           ac6f0fc5-2864-9e47-461a-a6b7b9680e4e:

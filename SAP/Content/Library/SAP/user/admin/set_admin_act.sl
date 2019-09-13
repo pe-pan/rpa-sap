@@ -2,7 +2,7 @@ namespace: SAP.user.admin
 operation:
   name: set_admin_act
   inputs:
-    - username
+    - user_id
   sequential_action:
     gav: 'com.microfocus.seq:SAP_Multiple_Admin_Users.Set_User_Admin:1.0.0'
     steps:

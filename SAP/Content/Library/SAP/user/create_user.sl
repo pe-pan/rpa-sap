@@ -32,16 +32,15 @@ flow:
             - second_string: 'true'
             - ignore_case: 'true'
         navigate:
-          - SUCCESS: set_admin_act
+          - SUCCESS: set_admin
           - FAILURE: on_failure
-    - set_admin_act:
+    - set_admin:
         do:
-          SAP.user.admin.set_admin_act:
+          SAP.user.admin.set_admin:
             - username: '${username}'
         navigate:
-          - SUCCESS: SUCCESS
-          - WARNING: SUCCESS
           - FAILURE: on_failure
+          - SUCCESS: SUCCESS
   outputs:
     - user_status
     - return_result
@@ -58,14 +57,11 @@ extensions:
       is_admin:
         x: 319
         'y': 124
-      set_admin_act:
-        x: 427
-        'y': 143
+      set_admin:
+        x: 430
+        'y': 138
         navigate:
-          5ea3a947-9842-cd2f-a22f-078329795414:
-            targetId: 66c5a32a-6420-321b-6f52-f48868e1b489
-            port: WARNING
-          ee20f798-4ce9-5ffb-81b4-82b8bdfe65e8:
+          450438fc-36ad-5ef7-5a61-caa8e1ae13a3:
             targetId: 66c5a32a-6420-321b-6f52-f48868e1b489
             port: SUCCESS
     results:
