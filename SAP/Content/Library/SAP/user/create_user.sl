@@ -38,7 +38,7 @@ flow:
             - ignore_case: 'true'
         navigate:
           - SUCCESS: set_admin
-          - FAILURE: on_failure
+          - FAILURE: SUCCESS
     - set_admin:
         do:
           SAP.user.admin.set_admin:
@@ -62,9 +62,13 @@ extensions:
       is_admin:
         x: 319
         'y': 124
+        navigate:
+          98607943-5936-7915-4648-6725d3b7a4f7:
+            targetId: 66c5a32a-6420-321b-6f52-f48868e1b489
+            port: FAILURE
       set_admin:
-        x: 430
-        'y': 138
+        x: 449
+        'y': 129
         navigate:
           450438fc-36ad-5ef7-5a61-caa8e1ae13a3:
             targetId: 66c5a32a-6420-321b-6f52-f48868e1b489
@@ -72,5 +76,5 @@ extensions:
     results:
       SUCCESS:
         66c5a32a-6420-321b-6f52-f48868e1b489:
-          x: 584
-          'y': 137
+          x: 372
+          'y': 341
