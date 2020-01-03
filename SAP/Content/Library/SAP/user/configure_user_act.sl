@@ -6,13 +6,16 @@ operation:
     - sap_admin_name
     - sap_admin_password
     - user_name
-    - first_name
-    - last_name
+    - first_name:
+        required: false
+    - last_name:
+        required: false
     - email:
         required: false
     - temp_password:
         required: false
-    - password
+    - password:
+        required: false
     - title:
         required: false
     - academic_title:
