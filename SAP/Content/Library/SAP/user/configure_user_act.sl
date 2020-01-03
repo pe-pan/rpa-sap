@@ -2,12 +2,12 @@ namespace: SAP.user
 operation:
   name: configure_user_act
   inputs:
-  - sap_connection
-  - sap_admin_name
-  - sap_admin_password
-  - user_name
-  - first_name
-  - last_name
+    - sap_connection
+    - sap_admin_name
+    - sap_admin_password
+    - user_name
+    - first_name
+    - last_name
     - email:
         required: false
     - temp_password:
