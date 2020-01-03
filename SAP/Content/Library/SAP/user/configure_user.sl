@@ -8,9 +8,9 @@ flow:
     - user_name: admin17
     - first_name:
         default: Petr
-		required: false
+        required: false
     - last_name: Panuska
-		default:
+        default:
         required: false
     - email:
         default: sfsd@dfd.cz
