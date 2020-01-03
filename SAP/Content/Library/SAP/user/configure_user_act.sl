@@ -4,7 +4,8 @@ operation:
   inputs:
     - sap_connection
     - sap_admin_name
-    - sap_admin_password
+    - sap_admin_password:
+        sensitive: true
     - user_name
     - first_name:
         required: false
@@ -14,8 +15,10 @@ operation:
         required: false
     - temp_password:
         required: false
+        sensitive: true
     - password:
         required: false
+        sensitive: true
     - title:
         required: false
     - academic_title:
@@ -60,19 +63,19 @@ operation:
         required: false
     - reuse_old_data:
         required: false
-  outputs:
-  - user_status:
-      robot: true
-      value: ${user_status}
-  - user_password:
-      robot: true
-      value: ${user_password}
-  - return_result: ${return_result}
-  - error_message: ${error_message}
   sequential_action:
-    gav: com.microfocus.seq:SAP.user.configure_user_act:1.0.0
+    gav: 'com.microfocus.seq:SAP.user.configure_user_act:1.0.0'
     external: true
+  outputs:
+    - user_status:
+        robot: true
+        value: '${user_status}'
+    - user_password:
+        robot: true
+        value: '${user_password}'
+    - return_result: '${return_result}'
+    - error_message: '${error_message}'
   results:
-  - SUCCESS
-  - WARNING
-  - FAILURE
+    - SUCCESS
+    - WARNING
+    - FAILURE
