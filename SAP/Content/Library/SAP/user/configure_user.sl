@@ -12,13 +12,10 @@ flow:
     - last_name:
         default: Panuska
         required: false
-    - email:
-        default: sfsd@dfd.cz
-        required: false
     - temp_password:
+        default: cloud1
         required: false
     - password:
-        default: Cloud@123
         required: false
     - title:
         required: false
