@@ -58,6 +58,8 @@ operation:
         required: false
     - profile:
         required: false
+    - reuse_old_data:
+        required: false
   outputs:
   - user_status:
       robot: true

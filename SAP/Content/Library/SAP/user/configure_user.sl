@@ -61,6 +61,8 @@ flow:
         required: false
     - profile:
         required: false
+    - reuse_old_data:
+        required: false
   workflow:
     - configure_user_act:
         do:
@@ -95,6 +97,7 @@ flow:
             - time_format: "${get('time_format', '')}"
             - time_zone: "${get('time_zone', '')}"
             - profile: "${get('profile', '')}"
+            - reuse_old_data: "${get('reuse_old_data', '')}"
         publish:
           - user_status
           - user_password
