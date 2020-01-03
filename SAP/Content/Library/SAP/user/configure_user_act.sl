@@ -8,30 +8,53 @@ operation:
   - user_name
   - first_name
   - last_name
-  - email
-  - temp_password
-  - password
-  - title
-  - academic_title
-  - language
-  - function
-  - department
-  - room
-  - floor
-  - building
-  - phone
-  - phone_ext
-  - mobile
-  - fax
-  - fax_ext
-  - method
-  - start_menu
-  - logon_language
-  - decimal_notation
-  - date_format
-  - time_format
-  - time_zone
-  - profile
+    - email:
+        required: false
+    - temp_password:
+        required: false
+    - password
+    - title:
+        required: false
+    - academic_title:
+        required: false
+    - language:
+        required: false
+    - function:
+        required: false
+    - department:
+        required: false
+    - room:
+        required: false
+    - floor:
+        required: false
+    - building:
+        required: false
+    - phone:
+        required: false
+    - phone_ext:
+        required: false
+    - mobile:
+        required: false
+    - fax:
+        required: false
+    - fax_ext:
+        required: false
+    - method:
+        required: false
+    - start_menu:
+        required: false
+    - logon_language:
+        required: false
+    - decimal_notation:
+        required: false
+    - date_format:
+        required: false
+    - time_format:
+        required: false
+    - time_zone:
+        required: false
+    - profile:
+        required: false
   outputs:
   - user_status:
       robot: true
