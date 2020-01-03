@@ -6,9 +6,11 @@ flow:
     - sap_admin_name: petr
     - sap_admin_password: Cloud@123
     - user_name: admin17
-    - first_name: Petr
-        required: false
+    - first_name:
+        default: Petr
+		required: false
     - last_name: Panuska
+		default:
         required: false
     - email:
         default: sfsd@dfd.cz
