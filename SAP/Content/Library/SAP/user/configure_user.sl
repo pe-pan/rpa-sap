@@ -9,8 +9,8 @@ flow:
     - first_name:
         default: Petr
         required: false
-    - last_name: Panuska
-        default:
+    - last_name:
+        default: Panuska
         required: false
     - email:
         default: sfsd@dfd.cz
