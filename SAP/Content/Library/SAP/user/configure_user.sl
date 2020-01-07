@@ -11,7 +11,7 @@
 #! @input email: Valid e-mail
 #! @input temp_password: Initial login password; will be changed upon first login; mandatory when creating a new user
 #! @input password: Password set permanently. If given, temp_password must be also given.
-#! @input profile: SAP_ALL for administration privileges 
+#! @input profile: SAP_ALL for administration privileges
 #! @input reuse_old_data: True / false to reuse previous data (the same user has been deleted before)
 #! @input title: Mr. or Ms.
 #! @input academic_title: Dr., Prof., Prof. Dr., B.A., MBA, Ph.D.
@@ -43,9 +43,9 @@ flow:
   name: configure_user
   inputs:
     - sap_connection: INTERNAL
-    - sap_admin_name: admin
+    - sap_admin_name: 'sap*'
     - sap_admin_password:
-        default: Cloud@123
+        default: Appl1ance
         sensitive: true
     - user_name: user001
     - first_name:
@@ -61,6 +61,7 @@ flow:
         required: false
         sensitive: true
     - password:
+        default: Cloud@123
         required: false
         sensitive: true
     - profile:

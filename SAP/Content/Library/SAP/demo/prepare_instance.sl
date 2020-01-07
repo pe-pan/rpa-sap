@@ -1,12 +1,11 @@
 ########################################################################################################################
 #!!
 #! @description: Installs and configure SAP server for the first use. It
-#!                 - installs SAP server
-#!                 - enables SAP user scripting (sets sapgui/user_scripting profile parameter to true)
-#!                 - sets default company address
-#!                 - creates an admin user
+#!               - installs SAP server
+#!               - enables SAP user scripting (sets sapgui/user_scripting profile parameter to true)
+#!               - sets default company address
+#!               - creates an admin user
 #!               Most of properties are taken from sapdemo system properties file.
-#!               
 #!
 #! @input sap_connection: SAP GUI connection used to connect to SAP server
 #! @input company_name: Company address used for newly created users
@@ -32,14 +31,6 @@ flow:
         required: false
         sensitive: true
   workflow:
-    - string_equals:
-        do:
-          io.cloudslang.base.strings.string_equals:
-            - first_string: 'true'
-            - second_string: 'false'
-        navigate:
-          - SUCCESS: install_sap
-          - FAILURE: set_profile_parameter
     - install_sap:
         do:
           SAP.system.install_sap:
@@ -54,8 +45,8 @@ flow:
                 sensitive: true
         navigate:
           - FAILURE: on_failure
-          - SUCCESS: set_profile_parameter
-    - set_profile_parameter:
+          - SUCCESS: enable_scripting
+    - enable_scripting:
         do:
           SAP.system.set_profile_parameter:
             - sap_connection: "${get('sap_connection', get_sp('sapdemo.sap_connection'))}"
@@ -79,8 +70,8 @@ flow:
             - company_name: "${get('company_name', get_sp('sapdemo.company_name'))}"
         navigate:
           - FAILURE: on_failure
-          - SUCCESS: configure_user
-    - configure_user:
+          - SUCCESS: create_admin
+    - create_admin:
         do:
           SAP.user.configure_user:
             - sap_connection: "${get('sap_connection', get_sp('sapdemo.sap_connection'))}"
@@ -107,25 +98,22 @@ flow:
 extensions:
   graph:
     steps:
+      enable_scripting:
+        x: 209
+        'y': 106
       install_sap:
         x: 63
         'y': 108
-      set_profile_parameter:
-        x: 209
-        'y': 106
       set_company_address:
         x: 352
         'y': 107
-      configure_user:
+      create_admin:
         x: 507
         'y': 109
         navigate:
           7cbcc895-2725-0a03-d45a-f7ed848ff4dd:
             targetId: d93bd551-f434-5f86-b718-05e0d8f59ca7
             port: SUCCESS
-      string_equals:
-        x: 167
-        'y': 287
     results:
       SUCCESS:
         d93bd551-f434-5f86-b718-05e0d8f59ca7:

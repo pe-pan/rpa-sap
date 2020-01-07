@@ -5,7 +5,7 @@ operation:
     - sap_connection
     - sap_admin_name
     - sap_admin_password:
-        sensitive: true
+        sensitive: false
     - user_name
     - first_name:
         required: false
@@ -15,10 +15,10 @@ operation:
         required: false
     - temp_password:
         required: false
-        sensitive: true
+        sensitive: false
     - password:
         required: false
-        sensitive: true
+        sensitive: false
     - title:
         required: false
     - academic_title:
