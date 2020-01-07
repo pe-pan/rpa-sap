@@ -8,7 +8,7 @@ flow:
         default: Appl1ance
         sensitive: true
     - parameter_name: sapgui/user_scripting
-    - parameter_value: 'FALSE'
+    - parameter_value: 'TRUE'
   workflow:
     - set_profile_parameter_act:
         do:

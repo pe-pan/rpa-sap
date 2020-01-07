@@ -25,7 +25,7 @@ flow:
     - sap_password:
         default: Cloud123
         sensitive: true
-    - reboot: 'true'
+    - reboot: 'false'
   workflow:
     - uninstall:
         do:
