@@ -22,7 +22,7 @@ properties:
       value: centos
       sensitive: false
   - password:
-      value: '********'
+      value: 'go.MF.admin123!'
       sensitive: true
   - install_path:
       value: /install/sapinst/install.sh
