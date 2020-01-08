@@ -46,5 +46,5 @@ properties:
       value: admin
       sensitive: false
   - first_user_password:
-      value: '********'
+      value: Cloud@123
       sensitive: true
