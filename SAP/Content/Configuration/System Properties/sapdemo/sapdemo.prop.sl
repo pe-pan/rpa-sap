@@ -28,7 +28,7 @@ properties:
       value: /install/sapinst/install.sh
       sensitive: false
   - sap_os_password:
-      value: '********'
+      value: Cloud123
       sensitive: true
   - sap_connection:
       value: INTERNAL
