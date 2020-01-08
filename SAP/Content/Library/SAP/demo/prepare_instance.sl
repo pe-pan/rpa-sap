@@ -11,8 +11,9 @@
 #! @input company_name: Company address used for newly created users
 #! @input first_user_name: Created admin user
 #! @input first_user_password: Password of the created admin user
+#! @input skip_installation: If true, the SAP is not installed but configured only
 #!
-#! @output online: True/false depending 
+#! @output online: True/false depending
 #! @output company_status: Status of assigning the standard default company address
 #! @output user_status: Status of creating the first user
 #! @output user_password: Password of the created first user (might be different from the input value)
@@ -36,7 +37,7 @@ flow:
         required: false
         sensitive: true
     - skip_installation:
-        default: 'true'
+        default: 'false'
         required: false
   workflow:
     - skip_installation:
