@@ -158,7 +158,9 @@ flow:
           - FAILURE: on_failure
   outputs:
     - user_status: '${user_status}'
-    - user_password: '${user_password}'
+    - user_password:
+        value: '${user_password}'
+        sensitive: true
     - return_result: '${return_result}'
     - error_message: '${error_message}'
   results:
