@@ -160,7 +160,7 @@ flow:
     - user_status: '${user_status}'
     - user_password:
         value: '${user_password}'
-        sensitive: false
+        sensitive: true
     - return_result: '${return_result}'
     - error_message: '${error_message}'
   results:
