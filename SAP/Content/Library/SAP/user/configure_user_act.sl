@@ -5,7 +5,7 @@ operation:
     - sap_connection
     - sap_admin_name
     - sap_admin_password:
-        sensitive: false
+        sensitive: true
     - user_name
     - first_name:
         required: false
@@ -15,7 +15,7 @@ operation:
         required: false
     - temp_password:
         required: false
-        sensitive: false
+        sensitive: true
     - password:
         required: false
         sensitive: false
