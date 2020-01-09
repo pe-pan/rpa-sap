@@ -2,55 +2,81 @@ namespace: SAP.user
 operation:
   name: configure_user_act
   inputs:
-  - sap_connection: INTERNAL
-  - sap_admin_name: sap*
-  - sap_admin_password:
-      default: Appl1ance
-      sensitive: true
-  - user_name: admin15
-  - first_name: Petrik
-  - last_name: panusku
-  - email: p@p.cz
-  - temp_password:
-      default: cloud1
-      sensitive: true
-  - password: Cloud@123
-  - title: Ms.
-  - academic_title: Dr.
-  - language
-  - function
-  - department: Quality
-  - room: '202'
-  - floor: second
-  - building: nowhere
-  - phone
-  - phone_ext
-  - mobile
-  - fax
-  - fax_ext
-  - method
-  - start_menu
-  - logon_language
-  - decimal_notation
-  - date_format
-  - time_format
-  - time_zone
-  - profile: SAP_ALL
-  - reuse_old_data: 'False'
-  outputs:
-  - user_status:
-      robot: true
-      value: ${user_status}
-  - user_password:
-      robot: true
-      sensitive: true
-      value: ${user_password}
-  - return_result: ${return_result}
-  - error_message: ${error_message}
+    - sap_connection
+    - sap_admin_name
+    - sap_admin_password:
+        sensitive: true
+    - user_name
+    - first_name:
+        required: false
+    - last_name:
+        required: false
+    - email:
+        required: false
+    - temp_password:
+        required: false
+        sensitive: true
+    - password:
+        required: false
+        sensitive: false
+    - title:
+        required: false
+    - academic_title:
+        required: false
+    - language:
+        required: false
+    - function:
+        required: false
+    - department:
+        required: false
+    - room:
+        required: false
+    - floor:
+        required: false
+    - building:
+        required: false
+    - phone:
+        required: false
+    - phone_ext:
+        required: false
+    - mobile:
+        required: false
+    - fax:
+        required: false
+    - fax_ext:
+        required: false
+    - method:
+        required: false
+    - start_menu:
+        required: false
+    - logon_language:
+        required: false
+    - decimal_notation:
+        required: false
+    - date_format:
+        required: false
+    - time_format:
+        required: false
+    - time_zone:
+        required: false
+    - profile:
+        required: false
+    - reuse_old_data:
+        required: false
   sequential_action:
-    gav: com.microfocus.seq:SAP.user.configure_user_act:1.0.0
+    gav: 'com.microfocus.seq:SAP.user.configure_user_act:1.0.0'
     external: true
+  outputs:
+    - user_status:
+        robot: true
+        value: '${user_status}'
+    - user_password:
+        robot: true
+        sensitive: true
+        value: '${user_password}'
+    - return_result: '${return_result}'
+    - error_message: '${error_message}'
   results:
-  - SUCCESS
-  - WARNING
-  - FAILURE
+    - SUCCESS
+    - WARNING
+    - FAILURE
