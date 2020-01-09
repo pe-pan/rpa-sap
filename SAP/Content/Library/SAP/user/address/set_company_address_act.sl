@@ -4,7 +4,8 @@ operation:
   inputs:
     - sap_connection
     - sap_admin_name
-    - sap_admin_password
+    - sap_admin_password:
+        sensitive: true
     - company_name
   sequential_action:
     gav: 'com.microfocus.seq:SAP.user.address.set_company_address_act:1.0.0'
