@@ -72,6 +72,7 @@ operation:
         value: '${user_status}'
     - user_password:
         robot: true
+        sensitive: true
         value: '${user_password}'
     - return_result: '${return_result}'
     - error_message: '${error_message}'
