@@ -40,12 +40,15 @@ flow:
           io.cloudslang.base.ssh.ssh_command:
             - host: '${host}'
             - command: |-
-                ${'''sudo %s -s &> %s << EOF
+                ${'''echo "01. Setting hostname into %s" > %s
+                sudo hostnamectl set-hostname %s
+                echo "02. Starting SAP installer from %s" >> %s
+                sudo %s -s &>> %s << EOF
 
                 yes
                 %s
                 %s
-                EOF''' % (install_path, log_path, sap_password, sap_password)}
+                EOF''' % (host.split('.')[0], log_path, host.split('.')[0], install_path, log_path, install_path, log_path, sap_password, sap_password)}
             - username: '${username}'
             - password:
                 value: '${password}'
