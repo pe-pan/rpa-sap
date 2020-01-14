@@ -4,7 +4,7 @@ operation:
   inputs:
     - user_id
   sequential_action:
-    gav: 'com.microfocus.seq:SAP_Multiple_Admin_Users.Set_User_Admin:1.0.0'
+    gav: 'com.microfocus.seq:SAP_Multiple_Admin_Users.Set_User_Admin:1.0.3'
     steps:
       - step:
           id: '1'

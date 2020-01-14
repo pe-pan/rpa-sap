@@ -8,7 +8,7 @@ operation:
     - email
     - password
   sequential_action:
-    gav: 'com.microfocus.seq:SAP.Create_User:1.0.0'
+    gav: 'com.microfocus.seq:SAP.Create_User:1.0.3'
     steps:
       - step:
           id: '1'

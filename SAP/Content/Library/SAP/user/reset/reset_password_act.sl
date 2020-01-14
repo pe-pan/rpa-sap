@@ -11,7 +11,7 @@ operation:
     - user
     - password
   sequential_action:
-    gav: 'com.microfocus.seq:SAP_Reset_User_Password.Reset_User_Password:1.0.0'
+    gav: 'com.microfocus.seq:SAP_Reset_User_Password.Reset_User_Password:1.0.3'
     steps:
       - step:
           id: '1'

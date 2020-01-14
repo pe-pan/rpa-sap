@@ -11,7 +11,7 @@ operation:
     - attempts
     - timeout
   sequential_action:
-    gav: 'com.microfocus.seq:SAP.system.is_sap_online_act:1.0.0'
+    gav: 'com.microfocus.seq:SAP.system.is_sap_online_act:1.0.3'
     external: true
   outputs:
     - online:
