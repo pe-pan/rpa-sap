@@ -37,6 +37,11 @@ flow:
     - configure_user:
         do:
           SAP.user.configure_user:
+            - sap_connection: "${get_sp('sapdemo.sap_connection')}"
+            - sap_admin_name: "${get_sp('sapdemo.sap_admin_name')}"
+            - sap_admin_password:
+                value: "${get_sp('sapdemo.sap_admin_password')}"
+                sensitive: true
             - user_name: '${username}'
             - first_name: '${first_name}'
             - last_name: '${last_name}'
@@ -71,4 +76,3 @@ extensions:
         85589f6d-0a8d-f072-f30b-c887cef9fb4e:
           x: 432
           'y': 127
-
