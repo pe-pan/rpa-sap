@@ -49,7 +49,7 @@ flow:
             - password:
                 value: '${password}'
                 sensitive: true
-            - profile: "${'SAP_ALL' if set_admin.lower == 'true' else ''}"
+            - profile: "${'SAP_ALL' if set_admin.lower() == 'true' else ''}"
         publish:
           - user_status
         navigate:
