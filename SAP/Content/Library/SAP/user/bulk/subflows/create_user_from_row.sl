@@ -33,19 +33,23 @@ flow:
           - last_name
           - email
         navigate:
-          - SUCCESS: create_user
-    - create_user:
+          - SUCCESS: configure_user
+    - configure_user:
         do:
-          SAP.user.create_user:
-            - username: '${username}'
+          SAP.user.configure_user:
+            - user_name: '${username}'
             - first_name: '${first_name}'
             - last_name: '${last_name}'
             - email: '${email}'
-            - password: '${password}'
-            - set_admin: '${set_admin}'
+            - password:
+                value: '${password}'
+                sensitive: true
+            - profile: "${'SAP_ALL' if set_admin.lower == 'true' else ''}"
+        publish:
+          - user_status
         navigate:
-          - SUCCESS: SUCCESS
           - FAILURE: on_failure
+          - SUCCESS: SUCCESS
   results:
     - FAILURE
     - SUCCESS
@@ -55,11 +59,11 @@ extensions:
       row_to_values:
         x: 123
         'y': 124
-      create_user:
-        x: 281
-        'y': 128
+      configure_user:
+        x: 278
+        'y': 114
         navigate:
-          a337f679-0367-2d1f-2722-cb7e685c9486:
+          d1b88ac1-b39d-2c2c-c885-0cd77cb2f5ff:
             targetId: 85589f6d-0a8d-f072-f30b-c887cef9fb4e
             port: SUCCESS
     results:
@@ -67,3 +71,4 @@ extensions:
         85589f6d-0a8d-f072-f30b-c887cef9fb4e:
           x: 432
           'y': 127
+
