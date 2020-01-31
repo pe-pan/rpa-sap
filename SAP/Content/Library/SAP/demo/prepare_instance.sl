@@ -66,7 +66,7 @@ flow:
           - SUCCESS: is_sap_online
     - enable_scripting:
         loop:
-          for: attempt in range(5)
+          for: attempts in range(5)
           do:
             SAP.system.set_profile_parameter:
               - sap_connection: "${get('sap_connection', get_sp('sapdemo.sap_connection'))}"
@@ -128,13 +128,17 @@ flow:
           - FAILURE: on_failure
           - SUCCESS: SUCCESS
     - is_sap_online:
-        do:
-          SAP.system.is_sap_online:
-            - sap_connection: INTERNAL
-            - attempts: '10'
-            - timeout: '15'
-        publish:
-          - online
+        loop:
+          for: attempts in range(5)
+          do:
+            SAP.system.is_sap_online:
+              - sap_connection: '${sap_connection}'
+              - attempts: '10'
+              - timeout: '15'
+          break:
+            - FAILURE
+          publish:
+            - online
         navigate:
           - SUCCESS: enable_scripting
           - FAILURE: on_failure
