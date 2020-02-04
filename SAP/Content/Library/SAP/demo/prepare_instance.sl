@@ -136,7 +136,7 @@ flow:
               - attempts: '10'
               - timeout: '15'
           break:
-            - FAILURE
+            - SUCCESS
           publish:
             - online
         navigate:
