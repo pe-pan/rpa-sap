@@ -64,7 +64,7 @@ operation:
     - reuse_old_data:
         required: false
   sequential_action:
-    gav: 'com.microfocus.seq:SAP.user.configure_user_act:1.0.3'
+    gav: 'com.microfocus.seq:SAP.user.configure_user_act:1.0.4'
     external: true
   outputs:
     - user_status:
