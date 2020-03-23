@@ -47,7 +47,7 @@ flow:
             - second_string: 'true'
             - ignore_case: 'true'
         navigate:
-          - SUCCESS: is_sap_online
+          - SUCCESS: wait_for_sap_online
           - FAILURE: install_sap
     - install_sap:
         do:
@@ -63,7 +63,7 @@ flow:
                 sensitive: true
         navigate:
           - FAILURE: on_failure
-          - SUCCESS: is_sap_online
+          - SUCCESS: wait_for_sap_online
     - enable_scripting:
         loop:
           for: attempts in range(5)
@@ -127,21 +127,12 @@ flow:
         navigate:
           - FAILURE: on_failure
           - SUCCESS: SUCCESS
-    - is_sap_online:
-        loop:
-          for: attempts in range(5)
-          do:
-            SAP.system.is_sap_online:
-              - sap_connection: '${sap_connection}'
-              - attempts: '10'
-              - timeout: '15'
-          break:
-            - SUCCESS
-          publish:
-            - online
+    - wait_for_sap_online:
+        do:
+          SAP.system.cmdline.wait_for_sap_online: []
         navigate:
-          - SUCCESS: enable_scripting
           - FAILURE: on_failure
+          - SUCCESS: enable_scripting
   outputs:
     - online: '${online}'
     - company_status: '${company_status}'
@@ -156,8 +147,8 @@ extensions:
   graph:
     steps:
       skip_installation:
-        x: 74
-        'y': 87
+        x: 47
+        'y': 90
       install_sap:
         x: 43
         'y': 306
@@ -174,9 +165,9 @@ extensions:
           7cbcc895-2725-0a03-d45a-f7ed848ff4dd:
             targetId: d93bd551-f434-5f86-b718-05e0d8f59ca7
             port: SUCCESS
-      is_sap_online:
-        x: 220
-        'y': 102
+      wait_for_sap_online:
+        x: 225
+        'y': 93
     results:
       SUCCESS:
         d93bd551-f434-5f86-b718-05e0d8f59ca7:

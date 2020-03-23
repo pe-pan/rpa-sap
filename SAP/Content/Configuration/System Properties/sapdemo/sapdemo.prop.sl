@@ -11,6 +11,10 @@
 #! @system_property company_name: Default company address used for newly created users
 #! @system_property first_user_name: First admin user created
 #! @system_property first_user_password: Password of the first admin user
+#! @system_property niping: Full path to SAP niping tool (must be available on the worker where this flow is going to be 
+#!                          executed).
+#! @system_property port: SAP port where the client is connecting to
+#! @system_property sap_os_username: SAP linux username
 #!!#
 ########################################################################################################################
 namespace: sapdemo
@@ -48,3 +52,12 @@ properties:
   - first_user_password:
       value: Cloud@123
       sensitive: true
+  - niping:
+      value: "C:\\\\Program Files (x86)\\\\SAP\\\\FrontEnd\\\\SAPgui\\\\niping.exe"
+      sensitive: false
+  - port:
+      value: '3200'
+      sensitive: false
+  - sap_os_username:
+      value: npladm
+      sensitive: false
