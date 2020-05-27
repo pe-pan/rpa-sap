@@ -18,25 +18,23 @@ flow:
     - email_header: E-mail
     - set_admin: 'true'
   workflow:
-    - Get_Cell:
-        do_external:
-          5060d8cc-d03c-43fe-946f-7babaaec589f:
-            - excelFileName: '${excel_file}'
-            - worksheetName: '${worksheet_name}'
-            - hasHeader: 'yes'
-            - firstRowIndex: '0'
-            - rowIndex: '0:1000'
-            - columnIndex: '0:100'
-            - rowDelimiter: '|'
-            - columnDelimiter: ','
+    - get_cell:
+        do:
+          io.cloudslang.base.excel.get_cell:
+            - excel_file_name: '${excel_file}'
+            - worksheet_name: '${worksheet_name}'
+            - has_header: 'yes'
+            - first_row_index: '0'
+            - row_index: '0:1000'
+            - column_index: '0:100'
         publish:
-          - data: '${returnResult}'
+          - data: '${return_result}'
           - header
         navigate:
-          - failure: on_failure
-          - success: row_to_map
+          - SUCCESS: row_to_map
+          - FAILURE: on_failure
     - create_user_from_row:
-        parallel_loop:
+        loop:
           for: "row in data.split('|')"
           do:
             SAP.user.bulk.subflows.create_user_from_row:
@@ -47,6 +45,8 @@ flow:
               - name_header: '${name_header}'
               - email_header: '${email_header}'
               - set_admin: '${set_admin}'
+          break:
+            - FAILURE
         navigate:
           - FAILURE: on_failure
           - SUCCESS: SUCCESS
@@ -64,7 +64,7 @@ flow:
 extensions:
   graph:
     steps:
-      Get_Cell:
+      get_cell:
         x: 67
         'y': 82
       create_user_from_row:
