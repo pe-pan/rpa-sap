@@ -129,7 +129,8 @@ flow:
           - SUCCESS: SUCCESS
     - wait_for_sap_online:
         do:
-          SAP.system.cmdline.wait_for_sap_online: []
+          SAP.system.cmdline.wait_for_sap_online:
+            - sap_connection: '${sap_connection}'
         navigate:
           - FAILURE: on_failure
           - SUCCESS: enable_scripting
@@ -147,29 +148,29 @@ extensions:
   graph:
     steps:
       skip_installation:
-        x: 47
-        'y': 90
+        x: 40
+        'y': 92
       install_sap:
         x: 43
         'y': 306
       enable_scripting:
-        x: 214
-        'y': 300
+        x: 226
+        'y': 301
       set_company_address:
         x: 383
         'y': 299
       create_admin:
-        x: 373
-        'y': 110
+        x: 382
+        'y': 97
         navigate:
           7cbcc895-2725-0a03-d45a-f7ed848ff4dd:
             targetId: d93bd551-f434-5f86-b718-05e0d8f59ca7
             port: SUCCESS
       wait_for_sap_online:
-        x: 225
+        x: 226
         'y': 93
     results:
       SUCCESS:
         d93bd551-f434-5f86-b718-05e0d8f59ca7:
-          x: 567
-          'y': 117
+          x: 568
+          'y': 95 
