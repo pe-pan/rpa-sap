@@ -26,7 +26,7 @@ flow:
           for: 'seconds in range(0, int(attempts))'
           do:
             SAP.system.cmdline.is_sap_online:
-              - seconds: '${str(2**seconds)}'
+              - seconds: '${str(2**int(seconds))}'
           break:
             - SUCCESS
         navigate:
@@ -68,4 +68,4 @@ extensions:
       SUCCESS:
         c654fbcc-70e4-da96-5caf-2630e9698147:
           x: 336
-          'y': 85 
+          'y': 85
