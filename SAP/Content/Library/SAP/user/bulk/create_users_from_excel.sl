@@ -34,7 +34,7 @@ flow:
           - SUCCESS: row_to_map
           - FAILURE: on_failure
     - create_user_from_row:
-        loop:
+        parallel_loop:
           for: "row in data.split('|')"
           do:
             SAP.user.bulk.subflows.create_user_from_row:
@@ -45,8 +45,6 @@ flow:
               - name_header: '${name_header}'
               - email_header: '${email_header}'
               - set_admin: '${set_admin}'
-          break:
-            - FAILURE
         navigate:
           - FAILURE: on_failure
           - SUCCESS: SUCCESS
